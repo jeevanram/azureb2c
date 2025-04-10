@@ -106,3 +106,44 @@ There are multiple strategies to migrate existing users to Azure AD B2C, dependi
    - Existing users are not pre-migrated.
    - Users receive communication instructing them to sign up manually on the Azure AD B2C-powered system.
 
+# User Journeys in AzureB2C
+
+**Sign-up and Sign-in Flow in Azure AD B2C**
+
+Azure AD B2C supports a combined Sign-up and Sign-in user flow, allowing users to authenticate using a variety of identity providers and scenarios:
+
+- Sign up with an external identity provider (e.g., social accounts or federated enterprise identity systems).
+
+- Sign in using a local (internal) account with a username and password managed by Azure AD B2C.
+
+- Sign up or sign in using a social or third-party identity provider, such as Google, Facebook, or enterprise providers(via OpenID Connect or SAML).
+
+- Password reset functionality is often built into the same flow or configured as a separate user journey.
+
+**One-Time Email Verification**
+
+Azure AD B2C supports one-time email verification for scenarios such as validating email ownership during first-time sign-in or sign-up.
+
+ - When enabled, the user is prompted to verify their email address the first time they sign in.
+
+ - After successful verification (via a code or link), the user is redirected to the application's home page or the originally requested resource.
+
+**Password Complexity in Azure AD B2C**
+
+By default, Azure AD B2C enforces strong password policies, requiring a mix of character types and lengths.
+Administrators can further customize password complexity rules using custom policies to meet organizational or compliance requirements.
+
+For full details, refer to the official documentation:
+https://learn.microsoft.com/en-us/azure/active-directory-b2c/password-complexity?pivots=b2c-custom-policy
+
+**Conditional Access with Azure AD B2C (via Azure AD integration)**
+
+Conditional Access enables dynamic enforcement of security requirements based on user or session context. When integrated with Azure AD Conditional Access:
+
+- MFA can be selectively enforced based on configurable conditions (e.g., user risk, device, location).
+
+- Access can be restricted to specific applications only.
+
+- Named locations (e.g., trusted IP ranges) can be used to allow or deny access or bypass MFA.
+
+- Note: Conditional Access policies require integration between Azure AD B2C and a linked Azure AD tenant.
